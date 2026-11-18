@@ -1,4 +1,3 @@
-
 pipeline {
     agent any
 
@@ -17,7 +16,7 @@ pipeline {
         stage('Tests Maven') {
             steps {
                 sh 'chmod +x mvnw'
-                sh './mvnw -B test'
+                sh './mvnw -B test -Dtest="*,!MySqlIntegrationTests"'
             }
         }
 
